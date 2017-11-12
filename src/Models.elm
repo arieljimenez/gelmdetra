@@ -1,18 +1,18 @@
-module Models exposing (Model, defaultModel, Msg(..))
+module Models exposing (..)
+
+import Pages.Dashboard.Model as Dashboard
 
 
-type alias Model =
-    { userName : String
-    , userPosition : String
+type alias AppModel =
+    { dashboardModel : Dashboard.Model
     }
 
 
-defaultModel : Model
+defaultModel : AppModel
 defaultModel =
-    { userName = "Ariel Jimenez"
-    , userPosition = "Developer"
+    { dashboardModel = Dashboard.defaultModel
     }
 
 
 type Msg
-    = NoOp
+    = DashboardMsg Dashboard.Msg

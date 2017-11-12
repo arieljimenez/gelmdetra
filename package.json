@@ -14,9 +14,14 @@
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "node-sass": "^4.6.1",
+    "sass-loader": "^6.0.6",
+    "webpack": "^3.8.1"
+  },
   "scripts": {
-    "watch": "webpack-dev-server --port 8080 --host 0.0.0.0"
+    "watch": "webpack-dev-server --port 8080 --host 0.0.0.0",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",

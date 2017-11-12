@@ -1,17 +1,21 @@
 module Main exposing (..)
 
 import Html exposing (Html, program)
-import Models exposing (Model, defaultModel, Msg(..))
+
+
+--
+
+import Models exposing (AppModel, defaultModel, Msg(..))
 import Views exposing (view)
 import Behavior exposing (update)
 
 
-init : ( Model, Cmd Msg )
+init : ( AppModel, Cmd Msg )
 init =
     ( defaultModel, Cmd.none )
 
 
-main : Program Never Model Msg
+main : Program Never AppModel Msg
 main =
     program
         { init = init

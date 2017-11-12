@@ -1,19 +1,22 @@
-#!/bin/sh
+#!/bin/ash
 cd /app
 echo "-----------------------------------"
-if [ ! -f /app/node_modules ]; then
+echo "Deleting old files"
+rm 117*
+echo "-----------------------------------"
+if [ -d /app/node_modules ]; then
+  echo "Skipping nodejs dependencies..."
+else
   echo "Installing nodejs dependencies..."
   npm install
-else
-  echo "Skipping nodejs dependencies..."
 fi
 
 echo "-----------------------------------"
-if [ ! -f /app/elm-stuff ]; then
+if [ -d /app/elm-stuff ]; then
+  echo "Skipping Elm dependencies..."
+else
   echo "Installing Elm dependencies..."
   elm package install -y
-else
-  echo "Skipping Elm dependencies..."
 fi
 
 echo "-----------------------------------"

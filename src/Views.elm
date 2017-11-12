@@ -2,10 +2,15 @@ module Views exposing (view)
 
 import Html exposing (Html, text, div)
 import Html.Attributes exposing (class)
-import Models exposing (Model, Msg(..))
 
 
-view : Model -> Html Msg
+--
+
+import Models exposing (AppModel, Msg(..))
+import Pages.Dashboard.Views as Dashboard
+
+
+view : AppModel -> Html Msg
 view model =
-    div [ class "fa fa-id-card" ]
-        [ text model.userName ]
+    div [ class "dashboard" ]
+        [ Html.map DashboardMsg (Dashboard.view model.dashboardModel) ]
