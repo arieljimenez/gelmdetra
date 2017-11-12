@@ -1,5 +1,5 @@
 #!/bin/sh
-ctx=`docker ps -aqf name=gelmetra`
+ctx=`docker ps -aqf name=gedetrax`
 if [ -z $ctx ]; then
   echo "================================"
   echo "[Creating container for DEV ENV]"
