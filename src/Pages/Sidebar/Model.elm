@@ -1,4 +1,4 @@
-module Pages.Dashboard.Model exposing (..)
+module Pages.Sidebar.Model exposing (..)
 
 
 type alias Model =

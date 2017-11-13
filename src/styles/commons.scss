@@ -1,8 +1,17 @@
+@import 'sidebar';
+
 $blue: #0992d0;
 
-* {
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.app {
   margin: 0;
   padding: 0;
+  display: flex;
+  width: 100%;
 }
 
 /* CUSTOM TEXT STYLES */
@@ -11,3 +20,6 @@ $blue: #0992d0;
 .text-right { text-align: right; }
 
 .center { margin: 0 auto; }
+
+h1 { text-align: center; }
+
