@@ -1,18 +1,17 @@
 module Models exposing (..)
 
 import Pages.Dashboard.Model as Dashboard
+import Pages.Sidebar.Model as Sidebar
 
 
 type alias AppModel =
-    { dashboardModel : Dashboard.Model
+    { sidebarModel : Sidebar.Model
+    , dashboardModel : Dashboard.Model
     }
 
 
 defaultModel : AppModel
 defaultModel =
-    { dashboardModel = Dashboard.defaultModel
+    { sidebarModel = Sidebar.defaultModel
+    , dashboardModel = Dashboard.defaultModel
     }
-
-
-type Msg
-    = DashboardMsg Dashboard.Msg

@@ -1,6 +1,10 @@
-module Pages.Dashboard.Behavior exposing (update)
+module Pages.Dashboard.Behavior exposing (update, Msg(..))
 
-import Pages.Dashboard.Model exposing (Model, Msg(..))
+import Pages.Dashboard.Model exposing (Model)
+
+
+type Msg
+    = NoOp
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )

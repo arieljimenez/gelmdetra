@@ -5,9 +5,9 @@ import Html exposing (Html, program)
 
 --
 
-import Models exposing (AppModel, defaultModel, Msg(..))
+import Models exposing (AppModel, defaultModel)
 import Views exposing (view)
-import Behavior exposing (update)
+import Behavior exposing (Msg(..), update)
 
 
 init : ( AppModel, Cmd Msg )
