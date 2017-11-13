@@ -1,1 +1,5 @@
 elm-stuff
+node_modules
+117*
+npm-debug.log
+dist
