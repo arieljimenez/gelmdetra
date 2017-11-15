@@ -1,9 +1,5 @@
-CARD|PR|COMMENT
+CARD|ISSUE|COMMENT
 ---|---|---
-[N/A]() | [#17](https://github.com/frismaury/gelmdetra/pull/17) | Add Sidebar and base styles
-[N/A]() | [#14](https://github.com/frismaury/gelmdetra/pull/14) | Add Dashboard and styles
-[N/A]() | [#3](https://github.com/frismaury/gelmdetra/pull/3) | Add Changelog, Readme and gitignore to repo
-[N/A]() | [#1](https://github.com/frismaury/gelmdetra/pull/1) | Add webpack and initial configs
 
 ISSUE|PR|COMMENT
 ---|---|---
