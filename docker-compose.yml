@@ -1,9 +1,14 @@
 version: '3.3'
 services:
   web:
-    # build: .
     image: frismaury/gelmdetra:v1
     ports:
      - "8080:8080"
+    volumes:
+     - .:/app
+  db:
+    image: frismaury/gelmdetra:db
+    ports:
+     - "3306:3306"
     volumes:
      - .:/app

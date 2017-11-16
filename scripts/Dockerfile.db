@@ -1,0 +1,13 @@
+# GEDETRA DB
+FROM alpine:3.6
+
+RUN mkdir -p /app
+
+RUN apk add --update --no-cache mysql \
+                                mysql-client
+
+WORKDIR /app
+
+EXPOSE 3306
+
+CMD sh /app/scripts/.mysqlconfig.sh
