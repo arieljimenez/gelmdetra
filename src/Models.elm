@@ -1,17 +1,12 @@
 module Models exposing (..)
 
-import Pages.Dashboard.Model as Dashboard
-import Pages.Sidebar.Model as Sidebar
+import Models.User exposing (User, defaultUser)
 
 
 type alias AppModel =
-    { sidebarModel : Sidebar.Model
-    , dashboardModel : Dashboard.Model
-    }
+    { user : User }
 
 
 defaultModel : AppModel
 defaultModel =
-    { sidebarModel = Sidebar.defaultModel
-    , dashboardModel = Dashboard.defaultModel
-    }
+    { user = defaultUser }

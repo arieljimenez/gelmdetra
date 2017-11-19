@@ -1,26 +1,28 @@
-module Pages.Sidebar.Views exposing (..)
+module Components.Sidebar exposing (sidebar)
 
-import Html exposing (Html, text, div, input, p, label, a, h4)
-import Html.Attributes exposing (id, class, type_, name, for, href)
+import Html exposing (Html, text, h4, label, p, a, input, div)
+import Html.Attributes exposing (id, class, type_, for, href, name)
 import Html.Events exposing (onClick)
 
 
 --
 
-import Pages.Sidebar.Model exposing (Model)
-import Pages.Sidebar.Behavior exposing (Msg(..))
+import Behavior exposing (Msg(..))
+import Models.User exposing (User)
 
 
-view : Model -> Html Msg
-view model =
+sidebar : User -> Html Msg
+sidebar user =
     div [ class "sidebar text-center" ]
         [ h4 [] [ text "GELMDETRA" ]
-        , viewMenu model
+        , viewMenu
+        , userSidebarView user
+        , text "gELMdetra v0.0.5"
         ]
 
 
-viewMenu : Model -> Html Msg
-viewMenu model =
+viewMenu : Html Msg
+viewMenu =
     div [ class "sidebar-menu" ]
         [ viewAccordion "Users"
             [ ( "List", Redirect )
@@ -57,3 +59,9 @@ viewOption ( option, msg ) =
     p []
         [ a [ href "#", onClick msg ] [ text option ]
         ]
+
+
+userSidebarView : User -> Html msg
+userSidebarView user =
+    div [ class "user-" ]
+        [ text user.name ]
