@@ -4,7 +4,6 @@
   "description": "Yup, once again im trying to re-write an unfinished app in elm :y",
   "main": "webpack.config.js",
   "dependencies": {
-    "ace-css": "^1.1.0",
     "css-loader": "^0.28.7",
     "elm-webpack-loader": "^4.4.0",
     "file-loader": "^1.1.5",

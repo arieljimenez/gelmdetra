@@ -9,5 +9,3 @@ RUN apk add --update --no-cache mysql \
 WORKDIR /app
 
 EXPOSE 3306
-
-CMD sh /app/scripts/.mysqlconfig.sh

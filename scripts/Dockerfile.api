@@ -1,0 +1,36 @@
+# GELMDETRA API
+FROM frolvlad/alpine-glibc
+
+ENV GOVER   go1.9.2
+ENV GOPATH  /app
+ENV APPPATH $GOPATH/src/github.com/frismaury
+ENV GOROOT  /usr/local/go
+ENV PATH    $PATH:/usr/local/go/bin:$GOPATH/bin
+
+RUN mkdir -p $GOPATH/pkg \
+             $GOPATH/bin \
+             $APPPATH
+
+RUN apk add --update --no-cache openssl \
+                                openssh \
+                                python \
+                                git \
+                                mysql \
+                                mysql-client
+
+
+RUN wget https://storage.googleapis.com/golang/$GOVER.linux-amd64.tar.gz \
+    && tar -xf $GOVER.linux-amd64.tar.gz -C /usr/local/ \
+    && rm $GOVER.linux-amd64.tar.gz
+
+# installing go dependencies
+RUN go get golang.org/x/crypto/bcrypt && \
+    go get github.com/jinzhu/gorm  && \
+    go get github.com/jinzhu/gorm/dialects/mysql && \
+    go get github.com/canthefason/go-watcher && \
+    go install github.com/canthefason/go-watcher/cmd/watcher && \
+    go get github.com/gorilla/mux
+
+WORKDIR $APPPATH
+
+EXPOSE 8000
