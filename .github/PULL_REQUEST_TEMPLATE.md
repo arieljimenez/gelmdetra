@@ -1,4 +1,4 @@
-**Board Card:** [N/A](https://trello.com/h/#hash)
+**Board Card:** [#000](https://trello.com/b/)
 **Closes Issue:** [#000](https://github.com/frismaury/gelmdetra/issues/#)
 
 **Dev Checklist:**

@@ -12,3 +12,16 @@ services:
      - "3306:3306"
     volumes:
      - .:/app
+    command: ["sh", "./scripts/.mysqlconfig.sh"]
+  api:
+    image: frismaury/gelmdetra:api
+    ports:
+     - "8000:8000"
+    volumes:
+     - .:/app/src/github.com/frismaury/gelmdetra
+    links:
+      - db:mysql
+    depends_on:
+      - "db"
+    command: ["sh" , "./gelmdetra/scripts/init-api.sh" ]
+
