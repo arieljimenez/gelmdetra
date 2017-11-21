@@ -16,7 +16,6 @@ type App struct {
 	DB     *gorm.DB
 }
 
-// "%s:%s@tcp(localhost:%s)/%s?charset=utf8&parseTime=True&loc=Local"
 func (a *App) Initialize(config *config.Config) {
 	dbURI := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=%s&parseTime=True&loc=Local",
 		config.DB.Username,
@@ -26,14 +25,17 @@ func (a *App) Initialize(config *config.Config) {
 		config.DB.DBName,
 		config.DB.Charset)
 
-	if _, err := gorm.Open(config.DB.Dialect, dbURI); err != nil {
+	db, err := gorm.Open(config.DB.Dialect, dbURI)
+
+	if err != nil {
 		log.Fatal("Could not connect database")
 	} else {
-		log.Printf("Database connected")
+		log.Printf("======================")
+		log.Printf("= Database connected =")
+		log.Printf("======================")
 	}
 
-	// a.DB = model.DBMigrate(db)
-	a.Router = NewRouter(a.DB)
+	a.Router = NewRouter(db)
 }
 
 func (a *App) Run(addr string) {

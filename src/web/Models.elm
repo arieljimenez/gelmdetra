@@ -4,9 +4,33 @@ import Models.User exposing (User, defaultUser)
 
 
 type alias AppModel =
-    { user : User }
+    { usersModule : UsersModule
+    , route : Route
+    , error : String
+    }
 
 
-defaultModel : AppModel
-defaultModel =
-    { user = defaultUser }
+defaultModel : Route -> AppModel
+defaultModel route =
+    { usersModule = usersModuleDefault
+    , route = route
+    , error = ""
+    }
+
+
+type alias UsersModule =
+    { currentUser : User
+    , userList : List User
+    }
+
+
+usersModuleDefault : UsersModule
+usersModuleDefault =
+    { currentUser = defaultUser
+    , userList = []
+    }
+
+
+type Route
+    = NotFoundRoute
+    | UsersRoute
