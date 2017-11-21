@@ -7,7 +7,7 @@
 }
 
 @font-face {
-  font-family: Roboto;
+  font-family: "Roboto";
   src: url('../fonts/Roboto.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
@@ -32,6 +32,8 @@
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
-  font-feature-settings: 'liga';
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased; /* Support for all WebKit browsers. */
+  text-rendering: optimizeLegibility; /* Support for Safari and Chrome. */
+  -moz-osx-font-smoothing: grayscale; /* Support for Firefox. */
+  font-feature-settings: 'liga'; /* Support for IE. */
 }

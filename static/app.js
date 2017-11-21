@@ -5,10 +5,6 @@ require('./index.html');
 require('./styles/commons.scss');
 require('./styles/font-face.css');
 require('./styles/material.teal-blue.min.css');
-
-//Js <wont work>
-require('./js/material.min.js');
-
 // Elm stuff
 var Elm = require('../src/web/Main.elm');
 var mountNode = document.getElementById('main');

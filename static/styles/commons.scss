@@ -22,3 +22,27 @@ h1 { text-align: center; }
 .text-center { text-align: center; }
 .text-left { text-align: left; }
 .text-right { text-align: right; }
+
+/* COLORS */
+.red { color: crimson; }
+.blue { color: $blue; }
+.green { color: green;}
+
+.group-icons {
+  i {
+    margin-left: 5px;
+  }
+}
+
+.content {
+  width: 90%;
+  padding-left: 1%;
+}
+
+/* SIDEBAR */
+.sys-name {
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
