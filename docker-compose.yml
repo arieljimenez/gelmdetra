@@ -6,6 +6,8 @@ services:
      - "8080:8080"
     volumes:
      - .:/app
+    links:
+      - api
   db:
     image: frismaury/gelmdetra:db
     ports:
@@ -13,6 +15,7 @@ services:
     volumes:
      - .:/app
     command: ["sh", "./scripts/.mysqlconfig.sh"]
+
   api:
     image: frismaury/gelmdetra:api
     ports:

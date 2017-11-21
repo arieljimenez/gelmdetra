@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/frismaury/gelmdetra/src/api-service/entities/root"
+	"github.com/frismaury/gelmdetra/src/api-service/entities/user"
 	"github.com/gorilla/mux"
 	"github.com/jinzhu/gorm"
 )
@@ -38,6 +39,14 @@ func getRoutes(db *gorm.DB) Routes {
 			"GET",
 			"/",
 			root.HandlerRoot(),
+		},
+
+		// Users
+		Route{
+			"UsersRetrieve",
+			"GET",
+			"/users",
+			user.HandlerGetUsers(db),
 		}}
 
 	return routes

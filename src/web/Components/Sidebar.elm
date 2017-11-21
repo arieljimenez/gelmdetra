@@ -1,18 +1,17 @@
-module Components.Sidebar exposing (sidebar)
+module Components.Sidebar exposing (sidebarRender)
 
 import Html exposing (Html, text, h4, label, p, a, input, div)
 import Html.Attributes exposing (id, class, type_, for, href, name)
-import Html.Events exposing (onClick)
 
 
 --
 
-import Behavior exposing (Msg(..))
+import Msgs exposing (Msg(..))
 import Models.User exposing (User)
 
 
-sidebar : User -> Html Msg
-sidebar user =
+sidebarRender : User -> Html Msg
+sidebarRender user =
     div [ class "sidebar text-center" ]
         [ h4 [] [ text "GELMDETRA" ]
         , viewMenu
@@ -25,21 +24,21 @@ viewMenu : Html Msg
 viewMenu =
     div [ class "sidebar-menu" ]
         [ viewAccordion "Users"
-            [ ( "List", Redirect )
-            , ( "Create", Redirect )
+            [ ( "List", "#users" )
+            , ( "Create", "#users/add" )
             ]
         , viewAccordion "Universities"
-            [ ( "List", Redirect )
-            , ( "Create", Redirect )
+            [ ( "List", "#universities" )
+            , ( "Create", "#universities/add" )
             ]
         , viewAccordion "Students"
-            [ ( "List", Redirect )
-            , ( "Create", Redirect )
+            [ ( "List", "#students" )
+            , ( "Create", "#students/add" )
             ]
         ]
 
 
-viewAccordion : String -> List ( String, Msg ) -> Html Msg
+viewAccordion : String -> List ( String, String ) -> Html Msg
 viewAccordion menuName listOptions =
     div [ class "tab blue" ]
         [ input
@@ -54,11 +53,9 @@ viewAccordion menuName listOptions =
         ]
 
 
-viewOption : ( String, Msg ) -> Html Msg
-viewOption ( option, msg ) =
-    p []
-        [ a [ href "#", onClick msg ] [ text option ]
-        ]
+viewOption : ( String, String ) -> Html msg
+viewOption ( option, link ) =
+    p [] [ a [ href link ] [ text option ] ]
 
 
 userSidebarView : User -> Html msg

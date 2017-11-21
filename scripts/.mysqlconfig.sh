@@ -38,15 +38,7 @@ if [ -d /run/mysqld ]; then
 fi
 
 echo "===================================="
-echo "Runing MySQL"
+echo "=         Runing MySQL             ="
 echo "===================================="
-if [ -f /app/db_backup/backup.sql ]; then
-    echo "Restoring data..."
-    mysqld --user=root & sleep 5 && \
-    mysql -u root -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE < /app/db_backup/backup.sql && \
-    rm /app/db_backup/backup.sql
-else
-    echo "No data to restore."
-    exec /usr/bin/mysqld --user=root --console
-fi
+exec /usr/bin/mysqld --user=root --console
 echo "===================================="
