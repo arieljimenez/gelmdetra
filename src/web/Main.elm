@@ -8,9 +8,8 @@ import Navigation exposing (Location)
 import Models exposing (AppModel, defaultModel)
 import Views exposing (view)
 import Behavior exposing (update)
-import Msgs exposing (Msg(OnLocationChange, OnFetchUsers))
+import Msgs exposing (Msg(OnLocationChange))
 import Routing exposing (parseLocation)
-import Models.User exposing (fetchUsers)
 
 
 init : Location -> ( AppModel, Cmd Msg )

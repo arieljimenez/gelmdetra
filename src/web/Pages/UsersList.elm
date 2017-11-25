@@ -16,13 +16,13 @@ usersListRender users =
         [ div [ class "" ]
             [ h3 [] [ text "User List" ]
             , hr [] []
-            , listUsers users
+            , listUsersView users
             ]
         ]
 
 
-listUsers : List User -> Html Msg
-listUsers users =
+listUsersView : List User -> Html Msg
+listUsersView users =
     table [ class "mdl-data-table mdl-shadow--2dp" ]
         [ thead []
             [ tr []

@@ -3,6 +3,7 @@ module Behavior exposing (..)
 import Models exposing (AppModel)
 import Msgs exposing (Msg(..))
 import Routing exposing (parseLocation)
+import Models.User exposing (fetchUsers)
 
 
 update : Msg -> AppModel -> ( AppModel, Cmd Msg )
@@ -22,12 +23,12 @@ update msg model =
                 cmd =
                     case newRoute of
                         Models.UsersRoute ->
-                            Debug.log ">" "listUser"
+                            fetchUsers OnFetchUsers
 
                         _ ->
-                            Debug.log ">" "nope "
+                            Cmd.none
             in
-                { model | route = newRoute } ! []
+                ( { model | route = newRoute }, cmd )
 
         OnFetchUsers (Ok listUsers) ->
             let
