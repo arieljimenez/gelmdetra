@@ -12,6 +12,8 @@ h1 { text-align: center; }
 .app {
   margin: 0;
   padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
 }
